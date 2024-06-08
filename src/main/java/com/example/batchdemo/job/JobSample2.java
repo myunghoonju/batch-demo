@@ -1,5 +1,6 @@
 package com.example.batchdemo.job;
 
+import com.example.batchdemo.tasklet.CustomTasklet;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -23,7 +24,7 @@ public class JobSample2 {
 
     @Bean
     public Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
-        return new StepBuilder("step1", jobRepository).tasklet(tasklet1(), transactionManager).build();
+        return new StepBuilder("step1", jobRepository).tasklet(new CustomTasklet(), transactionManager).build();
     }
 
     private Tasklet tasklet1() {
