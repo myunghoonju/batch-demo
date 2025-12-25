@@ -1,2 +1,2 @@
 # batch-demo
-demo for spring batch
+practice spring batch
